@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "snowpack": "^3.5.1",
+    "snowpack-sass-compiler": "^1.0.6"
+  },
+  "scripts": {
+    "dev": "snowpack dev",
+    "build": "snowpack build"
+  },
+  "name": "mxtan",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
+}

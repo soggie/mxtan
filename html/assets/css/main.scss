@@ -47,7 +47,115 @@ table {
 	border-spacing: 0;
 }
 
-/* Normal css begins here */
+/**
+ * Extensions of the default styling goes here
+ */
+@font-face {
+	font-family: 'Metropolis';
+	src: url('../font/Metropolis-Regular.woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	src: url('../font/Metropolis-Thin.woff2');
+	font-weight: lighter;
+	font-style: normal;
+}
+
+$font-color: #695634;
+$background-color: #EDE5DC;
+$primary-font-family: 'Forum', cursive;
+$normal-font-family: 'Metropolis', sans-serif;
+@mixin media-mobile {
+  @media (max-width: 914px) {
+    @content;
+  }
+}
+
+@mixin media-desktop {
+  @media (min-width: 915px) {
+    @content;
+  }
+}
+
 body,html {
-	background-color: #ccc;
+	background-color: #ffffff;
+	color: $font-color;
+	font-family: $normal-font-family;
+	font-size: 14px;
+	line-height: 1.4em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $primary-font-family;
+	font-size: 1rem;
+	line-height: 1.4em;
+}
+
+/**
+ * First fold styling goes here
+ */
+.section--first-fold {
+	background-color: $background-color;
+	max-width: calc(100vw - 60px);
+
+	@include media-mobile {
+		display: flex;
+		flex-direction: column;
+	}
+
+	@include media-desktop {}
+
+	.title {
+		text-transform: uppercase;
+		font-family: $normal-font-family;
+		// font-weight: lighter;
+
+		@include media-mobile {
+			padding: 3rem 0 2rem 3rem;
+			font-size: 1.5rem;
+		}
+	}
+
+	.greeting {
+		font-family: $primary-font-family;
+
+		@include media-mobile {
+			font-size: 1.75rem;
+			line-height: 1.3em;
+			align-self: flex-end;
+			max-width: calc(80% - 1rem);
+			padding: 1rem 1rem 1rem 0;
+		}
+	}
+
+	.image--avatar-1 {
+		background-color: #ccc;
+		width: 80%;
+		height: 300px;
+
+		@include media-mobile {
+			align-self: flex-end;
+		}
+	}
+
+	.image--avatar-2 {
+		background-color: #ccc;
+		width: 70%;
+		height: 300px;
+
+		@include media-mobile {
+			margin-left: 2rem;	
+		}
+	}
+
+	// Child element ordering
+	@include media-mobile {
+		.title 						{ order: 1; }
+		.greeting 				{ order: 3; }
+		.image--avatar-1 	{ order: 2; }
+		.image--avatar-2 	{ order: 4; }
+	}
 }

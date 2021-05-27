@@ -52,7 +52,440 @@ table {
   border-spacing: 0;
 }
 
-/* Normal css begins here */
+/**
+ * Extensions of the default styling goes here
+ */
+@font-face {
+  font-family: "Metropolis";
+  src: url("../font/Metropolis-Regular.woff2");
+  font-weight: normal;
+  font-style: normal;
+}
 body, html {
+  position: relative;
+  background-color: #ffffff;
+  color: #695634;
+  font-family: "Metropolis", sans-serif;
+  font-size: 14px;
+  line-height: 1.4em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Forum", cursive;
+  font-size: 1rem;
+  line-height: 1.4em;
+}
+
+/**
+ * First fold styling goes here
+ */
+.section--first-fold {
+  background-color: #EDE5DC;
+}
+@media (max-width: 914px) {
+  .section--first-fold {
+    max-width: calc(100vw - 40px);
+  }
+}
+@media (min-width: 915px) {
+  .section--first-fold {
+    max-width: calc(100vw - 60px);
+    height: 520px;
+  }
+}
+@media (max-width: 914px) {
+  .section--first-fold .fold__main {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (min-width: 915px) {
+  .section--first-fold .fold__main {
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin: 0 auto;
+  }
+}
+.section--first-fold .title {
+  text-transform: uppercase;
+  font-family: "Metropolis", sans-serif;
+}
+@media (max-width: 914px) {
+  .section--first-fold .title {
+    padding: 3rem 0 2rem 3rem;
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 915px) {
+  .section--first-fold .title {
+    position: absolute;
+    top: 3rem;
+    left: 5rem;
+    font-size: 1.5rem;
+  }
+}
+.section--first-fold .greeting {
+  font-family: "Forum", cursive;
+}
+@media (max-width: 914px) {
+  .section--first-fold .greeting {
+    font-size: 1.75rem;
+    line-height: 1.3em;
+    align-self: flex-end;
+    max-width: calc(80% - 1rem);
+    padding: 1rem 1rem 1rem 0;
+  }
+}
+@media (min-width: 915px) {
+  .section--first-fold .greeting {
+    position: absolute;
+    font-size: 2rem;
+    line-height: 1.3em;
+    max-width: 400px;
+    left: 480px;
+    top: 100px;
+  }
+}
+.section--first-fold .image--avatar-1 {
+  background-color: #fcfcfc;
+  width: 80%;
+  height: 300px;
+}
+@media (max-width: 914px) {
+  .section--first-fold .image--avatar-1 {
+    align-self: flex-end;
+  }
+}
+@media (min-width: 915px) {
+  .section--first-fold .image--avatar-1 {
+    position: absolute;
+    width: 300px;
+    left: 150px;
+    top: 100px;
+  }
+}
+.section--first-fold .image--avatar-2 {
   background-color: #ccc;
+  width: 70%;
+  height: 300px;
+}
+@media (max-width: 914px) {
+  .section--first-fold .image--avatar-2 {
+    margin-left: 2rem;
+    margin-bottom: -2rem;
+  }
+}
+@media (min-width: 915px) {
+  .section--first-fold .image--avatar-2 {
+    position: absolute;
+    width: 250px;
+    top: 270px;
+    left: 400px;
+  }
+}
+@media (max-width: 914px) {
+  .section--first-fold .title {
+    order: 1;
+  }
+  .section--first-fold .greeting {
+    order: 3;
+  }
+  .section--first-fold .image--avatar-1 {
+    order: 2;
+  }
+  .section--first-fold .image--avatar-2 {
+    order: 4;
+  }
+}
+
+/**
+ * Nav section styling goes here
+ */
+@media (min-width: 915px) {
+  .section--nav {
+    margin-right: 50px;
+  }
+}
+.section--nav .menu--overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+@media (max-width: 914px) {
+  .section--nav .menu--overlay {
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: all 0.3s;
+  }
+}
+@media (min-width: 915px) {
+  .section--nav .menu--overlay {
+    display: none;
+  }
+}
+.section--nav #drawer-toggle {
+  opacity: 0;
+}
+@media (max-width: 914px) {
+  .section--nav .menu {
+    position: fixed;
+    top: 0;
+    right: -70vw;
+    width: 80vw;
+    background-color: #fff;
+    transition: right 0.3s;
+  }
+}
+@media (min-width: 915px) {
+  .section--nav .menu {
+    margin-top: 5rem;
+    text-align: right;
+  }
+}
+.section--nav .menu .burger {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: 0.5rem;
+  user-select: none;
+}
+@media (min-width: 915px) {
+  .section--nav .menu .burger {
+    display: none;
+  }
+}
+.section--nav .menu .item {
+  text-decoration: none;
+  color: #695634;
+  text-transform: uppercase;
+}
+@media (max-width: 914px) {
+  .section--nav .menu .item {
+    display: none;
+    padding: 1rem 1.5rem;
+  }
+}
+@media (min-width: 915px) {
+  .section--nav .menu .item {
+    margin-left: 5%;
+  }
+}
+@media (max-width: 914px) {
+  .section--nav #drawer-toggle:checked ~ .menu {
+    right: 0;
+    height: 100vh;
+  }
+}
+@media (max-width: 914px) {
+  .section--nav #drawer-toggle ~ .menu .burger {
+    background: url(../img/burger-button.svg) no-repeat;
+  }
+}
+@media (max-width: 914px) {
+  .section--nav #drawer-toggle:checked ~ .menu .burger {
+    background: url(../img/close-button.svg) no-repeat;
+  }
+}
+@media (max-width: 914px) {
+  .section--nav #drawer-toggle:checked ~ .menu--overlay {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+}
+@media (max-width: 914px) {
+  .section--nav #drawer-toggle:checked ~ .menu .item {
+    display: block;
+  }
+}
+
+.section--awards {
+  margin-top: 3rem;
+}
+.section--awards .title, .section--awards .subtitle {
+  font-family: "Metropolis", sans-serif;
+  padding-right: 40px;
+}
+.section--awards .title {
+  margin-top: 4rem;
+  text-transform: uppercase;
+}
+.section--awards .subtitle {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  margin-bottom: 4rem;
+  letter-spacing: 0.05rem;
+}
+.section--awards .awards__list {
+  font-family: "Forum", cursive;
+  padding: 0;
+  margin: 0 0 4rem 0;
+}
+.section--awards .awards__list .item {
+  padding: 0.5rem 0;
+}
+@media (max-width: 914px) {
+  .section--awards .awards__list .item {
+    font-size: 1.35rem;
+    line-height: 1.1em;
+    padding-right: 10px;
+    margin-left: -10px;
+  }
+}
+@media (min-width: 915px) {
+  .section--awards .awards__list .item {
+    font-size: 2rem;
+    line-height: 1.4em;
+  }
+}
+.section--awards .awards__main {
+  background-color: #EDE5DC;
+  padding: 1rem;
+  text-align: center;
+}
+@media (max-width: 914px) {
+  .section--awards .awards__main {
+    margin-left: 40px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media (min-width: 915px) {
+  .section--awards .awards__main {
+    margin-left: 50px;
+  }
+}
+
+.section--development {
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 4rem;
+}
+.section--development .title, .section--development .subtitle {
+  font-family: "Metropolis", sans-serif;
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5em;
+}
+.section--development .title {
+  margin-top: 4rem;
+  text-transform: uppercase;
+}
+.section--development .subtitle {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  margin-bottom: 4rem;
+  letter-spacing: 0.05rem;
+}
+.section--development .card__grid {
+  padding-left: 30px;
+  padding-right: 30px;
+  display: grid;
+  grid-gap: 60px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+@media (max-width: 914px) {
+  .section--development .card__grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+}
+.section--development .card__grid .card {
+  background: red;
+  height: 400px;
+}
+
+.section--advisory {
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 4rem;
+}
+.section--advisory .title, .section--advisory .subtitle {
+  font-family: "Metropolis", sans-serif;
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5em;
+}
+.section--advisory .title {
+  margin-top: 4rem;
+  text-transform: uppercase;
+}
+.section--advisory .subtitle {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  margin-bottom: 4rem;
+  letter-spacing: 0.05rem;
+}
+
+.section--public-speaking {
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 4rem;
+}
+.section--public-speaking .title, .section--public-speaking .subtitle {
+  font-family: "Metropolis", sans-serif;
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5em;
+}
+.section--public-speaking .title {
+  margin-top: 4rem;
+  text-transform: uppercase;
+}
+.section--public-speaking .subtitle {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  margin-bottom: 4rem;
+  letter-spacing: 0.05rem;
+}
+
+.section--outside {
+  padding-bottom: 4rem;
+}
+.section--outside .title, .section--outside .subtitle {
+  font-family: "Metropolis", sans-serif;
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5em;
+}
+.section--outside .title {
+  margin-top: 4rem;
+  text-transform: uppercase;
+}
+.section--outside .subtitle {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  margin-bottom: 4rem;
+  letter-spacing: 0.05rem;
+}
+
+.section--contact {
+  background-color: #695634;
+  color: #fff;
+  padding-bottom: 4rem;
+}
+.section--contact .title, .section--contact .subtitle {
+  font-family: "Metropolis", sans-serif;
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5em;
+}
+.section--contact .title {
+  padding-top: 4rem;
+  text-transform: uppercase;
+}
+.section--contact .subtitle {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  margin-bottom: 4rem;
+  letter-spacing: 0.05rem;
 }

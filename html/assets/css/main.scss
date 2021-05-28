@@ -67,8 +67,8 @@ table {
 $font-color: #695634;
 $font-color-darker: #493614;
 $background-color: #EDE5DC;
-$primary-font-family: 'Forum', cursive;
-$normal-font-family: 'Metropolis', sans-serif;
+$normal-font-family: 'Forum', cursive;
+$primary-font-family: 'Metropolis', sans-serif;
 @mixin media-mobile {
   @media (max-width: 914px) {
     @content;
@@ -81,8 +81,8 @@ $normal-font-family: 'Metropolis', sans-serif;
   }
 }
 
-@mixin max-width {
-	max-width: 850px;
+@mixin max-width($width: 900px) {
+	max-width: $width;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -91,14 +91,14 @@ body,html {
 	position: relative;
 	background-color: #ffffff;
 	color: $font-color;
-	font-family: $normal-font-family;
+	font-family: $primary-font-family;
 	font-size: 14px;
 	line-height: 1.4em;
 	// letter-spacing: 0.02rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: $primary-font-family;
+	font-family: $normal-font-family;
 	font-size: 1rem;
 	line-height: 1.4em;
 }
@@ -132,8 +132,8 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 	.title {
+		font-family: $primary-font-family;
 		text-transform: uppercase;
-		font-family: $normal-font-family;
 		// font-weight: lighter;
 
 		@include media-mobile {
@@ -150,8 +150,7 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 	.greeting {
-		font-family: $primary-font-family;
-
+		font-family: $normal-font-family;
 		@include media-mobile {
 			font-size: 1.75rem;
 			line-height: 1.3em;
@@ -322,7 +321,7 @@ h1, h2, h3, h4, h5, h6 {
 	margin-top: 3rem;
 
 	.title, .subtitle {
-		font-family: $normal-font-family;
+		font-family: $primary-font-family;
 		padding-right: 40px;
 	}
 
@@ -339,12 +338,11 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 	.awards__list {
-		font-family: $primary-font-family;
-
 		padding: 0;
 		margin: 0 0 4rem 0;
 
 		.item {
+			font-family: $normal-font-family;
 			padding: .5rem 0;
 
 			@include media-mobile {
@@ -379,11 +377,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section--development {
-	@include max-width;
+	@include max-width($width: 1200px);
 	padding-bottom: 4rem;
 
 	.title, .subtitle {
-		font-family: $normal-font-family;
+		font-family: $primary-font-family;
 		text-align: center;
 		padding-left: 1rem;
 		padding-right: 1rem;
@@ -403,20 +401,102 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 	.card__grid {
-		padding-left: 30px;
-		padding-right: 30px;
-
 		display: grid;
 	  grid-gap: 60px;
-	  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+	  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 
 	  @include media-mobile {
-			grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));	  	
+			padding-left: 10px;
+			padding-right: 10px;
+			grid-gap: 10px;
+			grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 	  }
 
 	  .card {
-	  	background: red;
-	  	height: 400px;
+	  	.title {
+	  		font-family: $normal-font-family;
+	  		font-size: 1.5rem;
+	  		text-transform: unset;
+	  		margin: 0 0 1rem 0;
+	  	}
+
+	  	.image {
+	  		display: block;
+	  		width: 100%;
+	  		height: 380px;
+	  		background-color: #ccc;
+	  		margin-bottom: 1rem;
+
+	  		@include media-mobile {
+	  			height: 300px;
+	  		}
+	  	}
+
+	  	.row {
+	  		display: flex;
+	  		align-items: flex-start;
+	  		margin-bottom: 1rem;
+
+	  		& > * {
+	  			display: block;
+	  		}
+
+	  		.title {
+	  			text-align: right;
+	  			margin: 0 1rem 0 0;
+	  			padding: unset;
+	  			font-family: $primary-font-family;
+	  			font-size: 1rem;
+	  			width: 5rem;
+	  			min-width: 5rem;
+	  			flex-basis:  5rem;
+	  			line-height: 1.4em;
+	  			position: relative;
+	  			font-weight: bold;
+	  			letter-spacing: .05rem;
+
+	  			&:after {
+	  				content: ':';
+	  				position: absolute;
+	  				right: -.5rem;
+	  				top: 0;
+
+	  			}
+	  		}
+
+	  		.main {
+	  			font-size: 1rem;
+	  			line-height: 1.4em;
+	  			flex-shrink: 1;
+
+	  			ul {
+	  				list-style-type: '-';
+	  				padding-left: .5rem;
+
+	  				li {
+	  					padding-left: .5rem;
+	  				}
+	  			}
+	  		}
+
+	  		@include media-mobile {
+	  			.title, .main {
+	  				font-size: .75rem;
+	  				padding: 0 .5rem;
+	  			}
+
+	  			.title {
+	  				width: 40px;
+	  				min-width: 40px;
+	  				flex-basis: 40px;
+	  				margin-right: .5rem;
+
+	  				&:after {
+	  					right: -.25rem;
+	  				}
+	  			}
+	  		}
+	  	}
 	  }
 	}
 }
@@ -426,7 +506,7 @@ h1, h2, h3, h4, h5, h6 {
 	padding-bottom: 4rem;
 
 	.title, .subtitle {
-		font-family: $normal-font-family;
+		font-family: $primary-font-family;
 		text-align: center;
 		padding-left: 1rem;
 		padding-right: 1rem;
@@ -451,7 +531,7 @@ h1, h2, h3, h4, h5, h6 {
 	padding-bottom: 4rem;
 
 	.title, .subtitle {
-		font-family: $normal-font-family;
+		font-family: $primary-font-family;
 		text-align: center;
 		padding-left: 1rem;
 		padding-right: 1rem;
@@ -475,7 +555,7 @@ h1, h2, h3, h4, h5, h6 {
 	padding-bottom: 4rem;
 
 	.title, .subtitle {
-		font-family: $normal-font-family;
+		font-family: $primary-font-family;
 		text-align: center;
 		padding-left: 1rem;
 		padding-right: 1rem;
@@ -501,7 +581,7 @@ h1, h2, h3, h4, h5, h6 {
 	padding-bottom: 4rem;
 
 	.title, .subtitle {
-		font-family: $normal-font-family;
+		font-family: $primary-font-family;
 		text-align: center;
 		padding-left: 1rem;
 		padding-right: 1rem;

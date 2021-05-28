@@ -469,10 +469,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section--advisory {
-  max-width: 900px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 4rem;
+  position: relative;
 }
 .section--advisory .title, .section--advisory .subtitle {
   font-family: "Metropolis", sans-serif;
@@ -486,6 +487,168 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 .section--advisory .subtitle {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  margin-bottom: 4rem;
+  letter-spacing: 0.05rem;
+}
+.section--advisory .expertise__list {
+  display: flex;
+}
+@media (max-width: 914px) {
+  .section--advisory .expertise__list {
+    flex-direction: column;
+  }
+}
+.section--advisory .expertise__list .card {
+  top: 0;
+  background: #EDE5DC;
+  padding: 2rem;
+}
+@media (max-width: 914px) {
+  .section--advisory .expertise__list .card {
+    margin-bottom: 2rem;
+  }
+  .section--advisory .expertise__list .card:first-child {
+    margin-right: 40px;
+  }
+  .section--advisory .expertise__list .card:last-child {
+    margin-left: 40px;
+  }
+}
+@media (min-width: 915px) {
+  .section--advisory .expertise__list .card {
+    max-width: 600px;
+    width: 50%;
+    padding-bottom: 6rem;
+    margin: 2rem;
+  }
+  .section--advisory .expertise__list .card:first-child {
+    margin-left: 0;
+    margin-top: 100px;
+  }
+  .section--advisory .expertise__list .card:last-child {
+    margin-right: 0;
+    margin-bottom: 100px;
+  }
+}
+.section--advisory .expertise__list .card .title {
+  margin: unset;
+  padding: unset;
+  font-size: unset;
+  text-transform: unset;
+  font-family: "Forum", cursive;
+  font-size: 2rem;
+}
+.section--advisory .expertise__list .card .subtitle {
+  margin: unset;
+  padding: unset;
+  font-size: unset;
+  text-transform: unset;
+}
+.section--advisory .expertise__list .card .image {
+  background-color: #ccc;
+  height: 300px;
+  margin: 2rem 0;
+}
+.section--advisory .expertise__list .card .row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+.section--advisory .expertise__list .card .row > * {
+  display: block;
+}
+.section--advisory .expertise__list .card .row .title {
+  text-align: right;
+  margin: 0 1rem 0 0;
+  padding: unset;
+  font-family: "Metropolis", sans-serif;
+  font-size: 1rem;
+  width: 5rem;
+  min-width: 5rem;
+  flex-basis: 5rem;
+  line-height: 1.4em;
+  position: relative;
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+}
+.section--advisory .expertise__list .card .row .title:after {
+  content: ":";
+  position: absolute;
+  right: -0.5rem;
+  top: 0;
+}
+.section--advisory .expertise__list .card .row .main {
+  font-size: 1rem;
+  line-height: 1.4em;
+  flex-shrink: 1;
+}
+.section--advisory .expertise__list .card .row .main ul {
+  list-style-type: "-";
+  padding-left: 0.5rem;
+}
+.section--advisory .expertise__list .card .row .main ul li {
+  padding-left: 0.5rem;
+}
+@media (max-width: 914px) {
+  .section--advisory .expertise__list .card .row .title, .section--advisory .expertise__list .card .row .main {
+    font-size: 0.75rem;
+    padding: 0 0.5rem;
+  }
+  .section--advisory .expertise__list .card .row .title {
+    width: 40px;
+    min-width: 40px;
+    flex-basis: 40px;
+    margin-right: 0.5rem;
+  }
+  .section--advisory .expertise__list .card .row .title:after {
+    right: -0.25rem;
+  }
+}
+.section--advisory .cta {
+  display: block;
+  text-align: center;
+  background-color: #695634;
+  color: #fff;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  width: 100%;
+  font-family: "Forum", cursive;
+  font-size: 1.5rem;
+}
+@media (max-width: 914px) {
+  .section--advisory .cta {
+    width: 80%;
+  }
+}
+@media (min-width: 915px) {
+  .section--advisory .cta {
+    position: absolute;
+    bottom: 100px;
+    right: 20px;
+    width: calc(50% + 50px);
+  }
+}
+
+.section--expertise {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 4rem;
+}
+.section--expertise .title, .section--expertise .subtitle {
+  font-family: "Metropolis", sans-serif;
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.5em;
+}
+.section--expertise .title {
+  margin-top: 4rem;
+  text-transform: uppercase;
+}
+.section--expertise .subtitle {
   font-size: 0.85rem;
   margin-top: 0.5rem;
   margin-bottom: 4rem;
@@ -550,7 +713,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 1rem 2rem;
   width: 100%;
   font-family: "Forum", cursive;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 @media (max-width: 914px) {
   .section--public-speaking .cta {
@@ -559,7 +722,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section--outside {
+  padding-top: 2rem;
   padding-bottom: 4rem;
+  background-color: #EDE5DC;
 }
 .section--outside .title, .section--outside .subtitle {
   font-family: "Metropolis", sans-serif;

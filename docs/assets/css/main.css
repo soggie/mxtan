@@ -493,7 +493,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section--public-speaking {
-  max-width: 900px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 4rem;
@@ -514,6 +514,48 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0.5rem;
   margin-bottom: 4rem;
   letter-spacing: 0.05rem;
+}
+.section--public-speaking .speaking__grid {
+  display: grid;
+  grid-gap: 60px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  margin-bottom: 2rem;
+}
+@media (max-width: 914px) {
+  .section--public-speaking .speaking__grid {
+    padding-left: 10px;
+    padding-right: 10px;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    margin-bottom: 2rem;
+  }
+}
+.section--public-speaking .speaking__grid .card .image {
+  background-color: #ccc;
+  height: 300px;
+}
+.section--public-speaking .speaking__grid .card .title {
+  margin: 0 0 2rem 0;
+  padding: 1rem 0 0 0;
+  text-transform: unset;
+}
+.section--public-speaking .cta {
+  display: block;
+  margin: 0 auto;
+  max-width: 800px;
+  text-align: center;
+  background-color: #695634;
+  color: #fff;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  width: 100%;
+  font-family: "Forum", cursive;
+  font-size: 1.2rem;
+}
+@media (max-width: 914px) {
+  .section--public-speaking .cta {
+    width: 80%;
+  }
 }
 
 .section--outside {

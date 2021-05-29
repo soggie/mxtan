@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Custom Website</title>
+  <title>Sasha Tan</title>
 
   <script type="module">
     document.documentElement.classList.remove('no-js');
@@ -50,16 +50,17 @@
     <input type="checkbox" id="drawer-toggle" name="drawer-toggle" />
     <div class="menu--overlay"></div>
     <nav class="menu">
-      <label for="drawer-toggle" id="drawer-toggle-label"  class="burger"></label>
-      <a class="item" href="#">Awards</a>
-      <a class="item" href="#">Startups</a>
-      <a class="item" href="#">Advisory</a>
-      <a class="item" href="#">Expertise</a>
-      <a class="item" href="#">Speaking</a>
+      <label for="drawer-toggle" id="drawer-toggle-label" class="burger"></label>
+      <a class="item" href="#awards">Awards</a>
+      <a class="item" href="#startups">Startups</a>
+      <a class="item" href="#advisory">Advisory</a>
+      <a class="item" href="#expertise">Expertise</a>
+      <a class="item" href="#speaking">Speaking</a>
+      <a class="item" href="#contact">Contact</a>
     </nav>
   </div>
 
-  <div class="section--awards">
+  <div class="section--awards" id="awards">
     <div class="awards__main">
       <h2 class="title">Awards & Honours</h2>
       <h3 class="subtitle">(n.) "Non-paid acknowledgement that motivates me in excelling further"</h3>
@@ -75,7 +76,7 @@
     </div>
   </div>
 
-  <div class="section--development">
+  <div class="section--development" id="startups">
     <h2 class="title">Startup Development</h2>
     <h3 class="subtitle">(v.) "I build ideas into reality"</h3>
 
@@ -193,7 +194,7 @@
     </div>
   </div>
 
-  <div class="section--advisory">
+  <div class="section--advisory" id="advisory">
     <h2 class="title">Advisory</h2>
     <h3 class="subtitle">(adj.) "I take $ to xx things that work & warn you about things that don't"</h3>
     <div class="expertise__list">
@@ -237,12 +238,23 @@
     <a class="cta" href="#">Hire me</a>
   </div>
 
-  <div class="section--expertise">
+  <div class="section--expertise" id="expertise">
     <h2 class="title">Expertise</h2>
     <h3 class="subtitle">(n.) "I'm useful at a handful of things"</h3>
+
+    <div class="cards">
+      <div class="item">Finding structure in chaos</div>
+      <div class="item">Acheive under budget & time restrictions</div>
+      <div class="item">Architecturize ideas into milestones & action plans</div>
+      <div class="item">Lead instead of manage</div>
+      <div class="item">Has ready design and engineering resources/network</div>
+      <div class="item">Strict gatekeeper in brand positioning, visual communication and platform UIUX</div>
+    </div>
+
+    <a href="#" class="cta">Hire Me</a>
   </div>
 
-  <div class="section--public-speaking">
+  <div class="section--public-speaking" id="speaking">
     <h2 class="title">Public Speaking</h2>
     <h3 class="subtitle">(v.) "I surface at times for your entertainment"</h3>
 
@@ -266,14 +278,44 @@
     <a href="#" class="cta">Book Me</a>
   </div>
 
-  <div class="section--outside">
+  <div class="section--outside" id="outside">
     <h2 class="title">Outside of Work</h2>
     <h3 class="subtitle">(adj.) "When I get a weekend, my goal is to not hear from you"</h3>
   </div>
 
-  <div class="section--contact">
+  <div class="section--contact" id="contact">
     <h2 class="title">Contact</h2>
     <h3 class="subtitle">(v.) "Say hi if you want to"</h3>
+
+    <nav class="socials">
+      <div class="item">
+        <i class="email icon"></i>
+        <h4 class="title">Discuss</h4>
+      </div>
+      <div class="item">
+        <i class="linkedin icon"></i>
+        <h4 class="title">Fact check</h4>
+      </div>
+      <div class="item">
+        <i class="facebook icon"></i>
+        <h4 class="title">Observe</h4>
+      </div>
+      <div class="item">
+        <i class="instagram icon"></i>
+        <h4 class="title">Follow</h4>
+      </div>
+    </nav>
+
+    <div class="copyright">
+      <p class="main">
+        Currently based in Kuala Lumpur, Malaysia<br>
+        Frequently in Melbourne, Australia
+      </p>
+
+      <p class="sub">
+        &copy; by Sasha Tan. All Rights Reserved.
+      </p>
+    </div>
   </div>
   <!-- Content -->
   <!-- <script src="/assets/js/xy-polyfill.js" nomodule></script> -->

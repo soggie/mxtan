@@ -1,106 +1,43 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-/**
- * Extensions of the default styling goes here
- */
-@font-face {
-	font-family: 'Metropolis';
-	src: url('../font/Metropolis-Regular.woff2');
-	font-weight: normal;
-	font-style: normal;
-}
-
-// @font-face {
-// 	font-family: 'Metropolis';
-// 	src: url('../font/Metropolis-Thin.woff2');
-// 	font-weight: lighter;
-// 	font-style: normal;
-// }
+@use 'html/assets/css/reset';
+@use 'html/assets/css/base' as *;
 
 $font-color: #695634;
 $font-color-darker: #493614;
 $background-color: #EDE5DC;
-$normal-font-family: 'Forum', cursive;
+
+$normal-font-family: 'Libre Caslon', cursive;
 $primary-font-family: 'Metropolis', sans-serif;
-@mixin media-mobile {
-  @media (max-width: 914px) {
-    @content;
-  }
-}
 
-@mixin media-desktop {
-  @media (min-width: 915px) {
-    @content;
-  }
-}
-
-@mixin max-width($width: 900px) {
-	max-width: $width;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-body,html {
+body, html {
 	position: relative;
 	background-color: #ffffff;
 	color: $font-color;
-	font-family: $primary-font-family;
+	
+	@include serif-font;
 	font-size: 14px;
-	line-height: 1.4em;
-	// letter-spacing: 0.02rem;
+	line-height: 21px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: $normal-font-family;
-	font-size: 1rem;
-	line-height: 1.4em;
+	@include sans-font;
+}
+
+.section {
+	.section__title {
+		@include sans-font($text-transform: uppercase, $font-weight: bold);
+		text-align: center;
+	}
+
+	.section__subtitle {
+		@include sans-font($font-size: .85rem, $letter-spacing: .05rem);
+		margin-top: 5px;
+		margin-bottom: 4rem;
+		text-align: center;
+
+		&.light {
+			margin-top: 2px;
+		}
+	}
 }
 
 /**
@@ -114,8 +51,15 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 	@include media-desktop {
-		max-width: calc(100vw - 60px);
-		height: 520px;
+		max-width: calc(100vw - 80px);
+	}
+
+	@include media-md {
+		height: calc(100vh - 140px);
+	}
+
+	@include media-hd {
+		height: 580px;
 	}
 
 	.fold__main {
@@ -125,16 +69,19 @@ h1, h2, h3, h4, h5, h6 {
 		}
 
 		@include media-desktop {
-			@include max-width;
 			position: relative;
 			margin: 0 auto;
+		}
+
+		@include media-hd {
+			max-width: 900px;
+			height: 300px;
 		}
 	}
 
 	.title {
-		font-family: $primary-font-family;
+		@include sans-font;
 		text-transform: uppercase;
-		// font-weight: lighter;
 
 		@include media-mobile {
 			padding: 3rem 0 2rem 3rem;
@@ -143,14 +90,23 @@ h1, h2, h3, h4, h5, h6 {
 
 		@include media-desktop {
 			position: absolute;
-			top: 3rem;
-			left: 5rem;
 			font-size: 1.5rem;
+			font-weight: lighter;
+			top: calc(70px - 1.5rem);
+		}
+
+		@include media-md {
+			left: 80px;
+		}
+
+		@include media-hd {
+			left: 0;
 		}
 	}
 
 	.greeting {
-		font-family: $normal-font-family;
+		@include serif-font;
+
 		@include media-mobile {
 			font-size: 1.75rem;
 			line-height: 1.3em;
@@ -161,18 +117,23 @@ h1, h2, h3, h4, h5, h6 {
 
 		@include media-desktop {
 			position: absolute;
-			font-size: 2rem;
-			line-height: 1.3em;
-			max-width: 400px;
-			left: 480px;
-			top: 100px;
+			font-size: 2.5rem;
+			line-height: 1.2em;
+			max-width: 265px;
+			top: 120px;
+		}
+
+		@include media-md {
+			left: 720px;
+		}
+
+		@include media-hd {
+			left: 600px;
 		}
 	}
 
 	.image--avatar-1 {
-		background-color: #fcfcfc;
-		width: 80%;
-		height: 300px;
+		background-color: #fcccfc;
 
 		@include media-mobile {
 			align-self: flex-end;
@@ -180,16 +141,22 @@ h1, h2, h3, h4, h5, h6 {
 
 		@include media-desktop {
 			position: absolute;
-			width: 300px;
-			left: 150px;
-			top: 100px;
+			width: 480px;
+			height: 380px;
+			top: 120px;
+		}
+
+		@include media-md {
+			left: 180px;
+		}
+
+		@include media-hd {
+			left: 70px;
 		}
 	}
 
 	.image--avatar-2 {
 		background-color: #ccc;
-		width: 70%;
-		height: 300px;
 
 		@include media-mobile {
 			margin-left: 2rem;	
@@ -198,9 +165,17 @@ h1, h2, h3, h4, h5, h6 {
 
 		@include media-desktop {
 			position: absolute;
-			width: 250px;
-			top: 270px;
-			left: 400px;
+			width: 380px;
+			height: 200px;
+			top: 420px;
+		}
+
+		@include media-md {
+			left: 440px;
+		}
+
+		@include media-hd {
+			left: 330px;
 		}
 	}
 
@@ -217,8 +192,11 @@ h1, h2, h3, h4, h5, h6 {
  * Nav section styling goes here
  */
 .section--nav {
+	@include media-mobile {}
+
 	@include media-desktop {
-		margin-right: 50px;
+		margin-right: 100px;
+		margin-top: 65px;
 	}
 
 	.menu--overlay {
@@ -248,35 +226,34 @@ h1, h2, h3, h4, h5, h6 {
 
 			background-color: #fff;
 			transition: right .3s;
-		}
 
-		@include media-desktop {
-			margin-top: 5rem;
-			text-align: right;
-		}
+			.burger {
+				display: block;
+				width: 24px; height: 24px;
+				margin: .5rem;
 
-		.burger {
-			display: block;
-			width: 24px; height: 24px;
-			margin: .5rem;
+				user-select: none;
+				-webkit-touch-callout: none; 
+				-webkit-user-select: none; 
+				-khtml-user-select: none; 
+				-moz-user-select: none; 
+				-ms-user-select: none; 
 
-			user-select: none;
-			-webkit-touch-callout: none; 
-			-webkit-user-select: none; 
-			-khtml-user-select: none; 
-			-moz-user-select: none; 
-			-ms-user-select: none; 
-
-			@include media-desktop {
-				display: none;
+				@include media-desktop {
+					display: none;
+				}
 			}
 		}
 
+		@include media-desktop {
+			text-align: right;
+		}
+
 		.item {
+			@include sans-font($text-transform: uppercase);
+
 			text-decoration: none;
 			color: $font-color;
-			// font-weight: bold;
-			text-transform: uppercase;
 
 			@include media-mobile {
 				display: none;
@@ -323,24 +300,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section--awards {
-	margin-top: 3rem;
-
-	.title, .subtitle {
-		font-family: $primary-font-family;
-		padding-right: 40px;
-	}
-
-	.title {
-		margin-top: 4rem;
-		text-transform: uppercase;
-	}
-
-	.subtitle {
-		font-size: .85rem;
-		margin-top: .5rem;
-		margin-bottom: 4rem;
-		letter-spacing: 0.05rem;
-	}
+	margin-top: 65px;
 
 	.awards__list {
 		padding: 0;
@@ -376,39 +336,30 @@ h1, h2, h3, h4, h5, h6 {
 		}
 
 		@include media-desktop {
-			margin-left: 50px;
+			margin-left: 80px;
+			height: 720px;
 		}
+	}
+
+	// Overrides
+	.section__title {
+		margin-top: 100px;
+	}
+
+	.section__subtitle {
+		margin-bottom: 90px;
 	}
 }
 
 .section--development {
-	@include max-width($width: 1200px);
+	@include max-width($width: 1100px);
+	
 	padding-bottom: 4rem;
-
-	.title, .subtitle {
-		font-family: $primary-font-family;
-		text-align: center;
-		padding-left: 1rem;
-		padding-right: 1rem;
-		line-height: 1.5em;
-	}
-
-	.title {
-		margin-top: 4rem;
-		text-transform: uppercase;
-	}
-
-	.subtitle {
-		font-size: .85rem;
-		margin-top: .5rem;
-		margin-bottom: 4rem;
-		letter-spacing: 0.05rem;
-	}
+	margin-top: 120px;
 
 	.card__grid {
 		display: grid;
 	  grid-gap: 60px;
-	  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 
 	  @include media-mobile {
 			padding-left: 10px;
@@ -417,11 +368,14 @@ h1, h2, h3, h4, h5, h6 {
 			grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 	  }
 
+	  @include media-desktop {
+	  	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	  }
+
 	  .card {
 	  	.title {
-	  		font-family: $normal-font-family;
-	  		font-size: 1.5rem;
-	  		text-transform: unset;
+	  		@include serif-font($font-size: 1.5rem);
+	  		text-align: center;
 	  		margin: 0 0 1rem 0;
 	  	}
 
@@ -430,10 +384,14 @@ h1, h2, h3, h4, h5, h6 {
 	  		width: 100%;
 	  		height: 380px;
 	  		background-color: #ccc;
-	  		margin-bottom: 1rem;
+	  		margin-bottom: 1.5rem;
 
 	  		@include media-mobile {
 	  			height: 300px;
+	  		}
+
+	  		@include media-desktop {
+	  			height: 250px;
 	  		}
 	  	}
 
@@ -447,31 +405,27 @@ h1, h2, h3, h4, h5, h6 {
 	  		}
 
 	  		.title {
-	  			text-align: right;
-	  			margin: 0 1rem 0 0;
-	  			padding: unset;
-	  			font-family: $primary-font-family;
-	  			font-size: 1rem;
-	  			width: 5rem;
-	  			min-width: 5rem;
-	  			flex-basis:  5rem;
-	  			line-height: 1.4em;
+	  			@include sans-font($font-size: .8rem, $font-weight: bold, $letter-spacing: .05rem);
+	  			text-align: left;
+
 	  			position: relative;
-	  			font-weight: bold;
-	  			letter-spacing: .05rem;
+	  			flex-basis:  5rem;
+	  			min-width: 5rem;
+	  			width: 5rem;
+
+	  			margin: 0 1rem 0 0;
 
 	  			&:after {
 	  				content: ':';
 	  				position: absolute;
 	  				right: -.5rem;
 	  				top: 0;
-
 	  			}
 	  		}
 
 	  		.main {
-	  			font-size: 1rem;
-	  			line-height: 1.4em;
+	  			@include sans-font($font-size: .8rem);
+
 	  			flex-shrink: 1;
 	  			padding-right: 1rem;
 
@@ -512,28 +466,9 @@ h1, h2, h3, h4, h5, h6 {
 	padding-bottom: 4rem;
 	position: relative;
 
-	.title, .subtitle {
-		font-family: $primary-font-family;
-		text-align: center;
-		padding-left: 1rem;
-		padding-right: 1rem;
-		line-height: 1.5em;
-	}
-
-	.title {
-		margin-top: 4rem;
-		text-transform: uppercase;
-	}
-
-	.subtitle {
-		font-size: .85rem;
-		margin-top: .5rem;
-		margin-bottom: 4rem;
-		letter-spacing: 0.05rem;
-	}
-
 	.expertise__list {
 		display: flex;
+		flex-wrap: wrap;
 
 		@include media-mobile {
 			flex-direction: column;
@@ -558,7 +493,7 @@ h1, h2, h3, h4, h5, h6 {
 			}
 
 			@include media-desktop {
-				max-width: 600px;
+				max-width: 500px;
 				width: 50%;
 				padding-bottom: 6rem;
 				margin: 2rem;
@@ -685,26 +620,6 @@ h1, h2, h3, h4, h5, h6 {
 	@include max-width($width: 1200px);
 	padding-bottom: 4rem;
 
-	.title, .subtitle {
-		font-family: $primary-font-family;
-		text-align: center;
-		padding-left: 1rem;
-		padding-right: 1rem;
-		line-height: 1.5em;
-	}
-
-	.title {
-		margin-top: 4rem;
-		text-transform: uppercase;
-	}
-
-	.subtitle {
-		font-size: .85rem;
-		margin-top: .5rem;
-		margin-bottom: 4rem;
-		letter-spacing: 0.05rem;
-	}
-
 	.cards {
 		display: grid;
 	  grid-gap: 30px;
@@ -713,55 +628,71 @@ h1, h2, h3, h4, h5, h6 {
 
 	  .item {
 	  	background-color: $background-color;
-	  	padding: 2rem;
+	  	
 	  	text-align: center;
 	  	font-family: $normal-font-family;
-	  	font-size: 1.5rem;
+	  	
 	  	line-height: 1.2em;
-	  	height: 200px;
-
+	  	
 	  	display: flex;
 	  	flex-direction: column;
 	  	justify-content: center;
 
 	  	box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
 
-	  	&:nth-child(1) {
-	  		margin-right: 20px;
-	  		z-index: 100;
+	  	@include media-mobile {
+	  		font-size: 1rem;
+	  		height: 100px;
+	  		padding: 1rem;
+	  		margin: 0;
+
+	  		&:nth-child(1) {
+
+	  		}
 	  	}
 
-	  	&:nth-child(2) {
-	  		height: calc(200px - 100px);
-	  		margin-top: 40px;
-	  		margin-left: -100px;
-	  		margin-right: 50px;
-	  		z-index: 104;
-	  	}
+	  	@include media-desktop {
+	  		font-size: 1.5rem;
+	  		height: 200px;
+	  		padding: 2rem;
 
-	  	&:nth-child(3) {
-	  		z-index: 101;
-	  		height: calc(200px - 50px);
-	  		margin-left: -50px;
-	  		margin-right: 20px;
-	  	}
+	  		&:nth-child(1) {
+		  		margin-right: 20px;
+		  		z-index: 100;
+		  	}
 
-	  	&:nth-child(4) {
-	  		height: calc(200px - 100px);
-	  		margin-top: -10px;
-	  		margin-left: 50px;	
-	  		z-index: 102;
-	  	}
+		  	&:nth-child(2) {
+		  		height: calc(200px - 100px);
+		  		margin-top: 40px;
+		  		margin-left: -100px;
+		  		margin-right: 50px;
+		  		z-index: 104;
+		  	}
 
-	  	&:nth-child(5) {
-	  		margin-top: -100px;
-	  		z-index: 103;
-	  	}
+		  	&:nth-child(3) {
+		  		z-index: 101;
+		  		height: calc(200px - 50px);
+		  		margin-left: -50px;
+		  		margin-right: 20px;
+		  	}
 
-	  	&:nth-child(6) {
-	  		z-index: 102;
-	  		margin-left: -50px;
-	  		height: calc(200px - 10px);
+		  	&:nth-child(4) {
+		  		height: calc(200px - 100px);
+		  		margin-top: -10px;
+		  		margin-left: 50px;	
+		  		z-index: 102;
+		  	}
+
+		  	&:nth-child(5) {
+		  		margin-top: -100px;
+		  		z-index: 103;
+		  	}
+
+		  	&:nth-child(6) {
+		  		z-index: 102;
+		  		margin-left: -50px;
+		  		height: calc(200px - 10px);
+		  	}
 	  	}
 	  }
 	}
@@ -792,26 +723,6 @@ h1, h2, h3, h4, h5, h6 {
 .section--public-speaking {
 	@include max-width($width: 1200px);
 	padding-bottom: 4rem;
-
-	.title, .subtitle {
-		font-family: $primary-font-family;
-		text-align: center;
-		padding-left: 1rem;
-		padding-right: 1rem;
-		line-height: 1.5em;
-	}
-
-	.title {
-		margin-top: 4rem;
-		text-transform: uppercase;
-	}
-
-	.subtitle {
-		font-size: .85rem;
-		margin-top: .5rem;
-		margin-bottom: 4rem;
-		letter-spacing: 0.05rem;
-	}
 
 	.speaking__grid {
 		display: grid;
@@ -863,84 +774,52 @@ h1, h2, h3, h4, h5, h6 {
 	padding-top: 2rem;
 	padding-bottom: 4rem;
 	background-color: $background-color;
-
-	.title, .subtitle {
-		font-family: $primary-font-family;
-		text-align: center;
-		padding-left: 1rem;
-		padding-right: 1rem;
-		line-height: 1.5em;
-	}
-
-	.title {
-		margin-top: 4rem;
-		text-transform: uppercase;
-	}
-
-	.subtitle {
-		font-size: .85rem;
-		margin-top: .5rem;
-		margin-bottom: 4rem;
-		letter-spacing: 0.05rem;
-	}
 }
 
 .section--contact {
 	background-color: $font-color;
-	color: #fff;
-	padding-bottom: 4rem;
+	color: $background-color;
+	padding-bottom: 30px;
+	padding-top: 80px;
 
-	.title, .subtitle {
-		font-family: $primary-font-family;
-		text-align: center;
-		padding-left: 1rem;
-		padding-right: 1rem;
-		line-height: 1.5em;
-	}
-
-	.title {
-		padding-top: 4rem;
-		text-transform: uppercase;
-	}
-
-	.subtitle {
-		font-size: .85rem;
-		margin-top: .5rem;
-		margin-bottom: 4rem;
-		letter-spacing: 0.05rem;
+	// Override
+	.section__subtitle {
+		margin-bottom: 100px;
 	}
 
 	.socials {
-		@include max-width;
+		@include max-width($width: 800px);
 		display: flex;
-		justify-content: space-between;
-		margin-bottom: 4rem;
+		justify-content: space-evenly;
+		margin-bottom: 100px;
 
 		.item {
 			text-align: center;
+
+			svg {
+				background-color: #ccc;
+			}
 		}
 
-		.icon {
-			display: inline-block;
-			width: 24px;
-			height: 24px;
-			background-repeat: no-repeat;
-
-			&.email { background-image: url(../img/email.svg); }
-			&.linkedin { background-image: url(../img/linkedin.svg); }
-			&.facebook { background-image: url(../img/facebook.svg); }
-			&.instagram { background-image: url(../img/instagram.svg); }
+		.fas, .fab {
+			background-color: #888;
+			border-radius: 5px;
+			width: 48px;
+			line-height: 48px;
+			font-size: 2rem;
+			text-align: center;
 		}
 
 		.title {
 			margin: unset; padding: 1rem 0 0 0;
+			@include serif-font($font-size: 1.5rem);
 		}
 	}
 
 	.copyright {
+		@include sans-font($font-size: .8rem);
+
 		text-align: center;
-		padding-bottom: 4rem;
-		font-size: .85rem;
 
 		.main {
 			line-height: 1.5em;

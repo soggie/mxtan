@@ -1,0 +1,12 @@
+/**
+ * Sets up the basic styling of the page
+ */
+@font-face {
+  font-family: "Metropolis";
+  src: url("../font/Metropolis-Light.woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+/**
+ * Extensions of the default styling goes here
+ */

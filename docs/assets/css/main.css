@@ -566,19 +566,28 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section--advisory {
-  max-width: 1200px;
+  max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 4rem;
+  margin-top: 120px;
   position: relative;
+}
+.section--advisory .section__subtitle {
+  margin-bottom: 2rem;
 }
 .section--advisory .expertise__list {
   display: flex;
-  flex-wrap: wrap;
 }
 @media (max-width: 914px) {
   .section--advisory .expertise__list {
+    flex-wrap: wrap;
     flex-direction: column;
+  }
+}
+@media (min-width: 915px) {
+  .section--advisory .expertise__list {
+    justify-content: space-between;
   }
 }
 .section--advisory .expertise__list .card {
@@ -599,38 +608,52 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (min-width: 915px) {
   .section--advisory .expertise__list .card {
-    max-width: 500px;
-    width: 50%;
-    padding-bottom: 6rem;
-    margin: 2rem;
+    width: 550px;
+    padding-bottom: 1rem;
   }
   .section--advisory .expertise__list .card:first-child {
-    margin-left: 0;
-    margin-top: 100px;
+    margin-top: 90px;
   }
   .section--advisory .expertise__list .card:last-child {
-    margin-right: 0;
-    margin-bottom: 100px;
+    margin-bottom: 90px;
   }
 }
 .section--advisory .expertise__list .card .title {
-  margin: unset;
-  padding: unset;
-  font-size: unset;
-  text-transform: unset;
   font-family: "Libre Caslon", cursive;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  font-weight: normal;
+  text-transform: none;
+  letter-spacing: inherit;
+  line-height: 1.5em;
+  text-align: center;
 }
 .section--advisory .expertise__list .card .subtitle {
-  margin: unset;
-  padding: unset;
-  font-size: unset;
-  text-transform: unset;
+  font-family: "Metropolis", sans-serif;
+  font-size: 0.85rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  line-height: 1.5em;
+  margin-top: 2px;
+  text-align: center;
 }
 .section--advisory .expertise__list .card .image {
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: #ccc;
-  height: 300px;
+  height: 250px;
   margin: 2rem 0;
+}
+@media (max-width: 914px) {
+  .section--advisory .expertise__list .card .image {
+    margin: 2rem 0;
+  }
+}
+@media (min-width: 915px) {
+  .section--advisory .expertise__list .card .image {
+    margin: 2rem auto;
+    max-width: 450px;
+  }
 }
 .section--advisory .expertise__list .card .row {
   display: flex;
@@ -640,29 +663,42 @@ h1, h2, h3, h4, h5, h6 {
 .section--advisory .expertise__list .card .row > * {
   display: block;
 }
-.section--advisory .expertise__list .card .row .title {
-  text-align: right;
+@media (min-width: 915px) {
+  .section--advisory .expertise__list .card .row {
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.section--advisory .expertise__list .card .row .label {
+  font-family: "Metropolis", sans-serif;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: none;
+  letter-spacing: inherit;
+  line-height: 1.5em;
   margin: 0 1rem 0 0;
   padding: unset;
-  font-family: "Metropolis", sans-serif;
-  font-size: 1rem;
-  width: 5rem;
-  min-width: 5rem;
+  width: 4rem;
+  min-width: 4rem;
   flex-basis: 5rem;
-  line-height: 1.4em;
   position: relative;
-  font-weight: bold;
-  letter-spacing: 0.05rem;
+  padding-left: 1rem;
 }
-.section--advisory .expertise__list .card .row .title:after {
+.section--advisory .expertise__list .card .row .label:after {
   content: ":";
   position: absolute;
   right: -0.5rem;
   top: 0;
 }
 .section--advisory .expertise__list .card .row .main {
-  font-size: 1rem;
-  line-height: 1.4em;
+  font-family: "Metropolis", sans-serif;
+  font-size: 0.85rem;
+  font-weight: normal;
+  text-transform: none;
+  letter-spacing: inherit;
+  line-height: 1.5em;
+  padding-right: 1rem;
   flex-shrink: 1;
 }
 .section--advisory .expertise__list .card .row .main ul {
@@ -688,6 +724,12 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 .section--advisory .cta {
+  font-family: "Libre Caslon", cursive;
+  font-size: 1.5rem;
+  font-weight: normal;
+  text-transform: none;
+  letter-spacing: inherit;
+  line-height: 1.5em;
   display: block;
   text-align: center;
   background-color: #695634;
@@ -695,8 +737,6 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   padding: 1rem 2rem;
   width: 100%;
-  font-family: "Libre Caslon", cursive;
-  font-size: 1.5rem;
 }
 @media (max-width: 914px) {
   .section--advisory .cta {
@@ -706,7 +746,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 915px) {
   .section--advisory .cta {
     position: absolute;
-    bottom: 100px;
+    bottom: 70px;
     right: 20px;
     width: calc(50% + 50px);
   }
@@ -717,6 +757,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 4rem;
+  margin-top: 120px;
 }
 .section--expertise .cards {
   display: grid;

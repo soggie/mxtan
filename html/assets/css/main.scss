@@ -462,16 +462,28 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section--advisory {
-	@include max-width($width: 1200px);
+	@include max-width($width: 1280px);
+	
 	padding-bottom: 4rem;
+	margin-top: 120px;
+
 	position: relative;
+
+	// Override
+	.section__subtitle {
+		margin-bottom: 2rem;
+	}
 
 	.expertise__list {
 		display: flex;
-		flex-wrap: wrap;
 
 		@include media-mobile {
+			flex-wrap: wrap;
 			flex-direction: column;
+		}
+
+		@include media-desktop {
+			justify-content: space-between;
 		}
 
 		.card {
@@ -493,36 +505,44 @@ h1, h2, h3, h4, h5, h6 {
 			}
 
 			@include media-desktop {
-				max-width: 500px;
-				width: 50%;
-				padding-bottom: 6rem;
-				margin: 2rem;
+				width: 550px;
+				padding-bottom: 1rem;
 
 				&:first-child {
-					margin-left: 0;
-					margin-top: 100px;
+					margin-top: 90px;
 				}
 
 				&:last-child {
-					margin-right: 0;
-					margin-bottom: 100px;
+					margin-bottom: 90px;
 				}
 			}
 
 			.title {
-				margin: unset; padding: unset; font-size: unset; text-transform: unset;
-				font-family: $normal-font-family;
-				font-size: 2rem;
+				@include serif-font($font-size: 1.5rem);
+				text-align: center;
 			}
 
 			.subtitle {
-				margin: unset; padding: unset; font-size: unset; text-transform: unset;
+				@include sans-font($font-size: .85rem, $text-transform: uppercase, $letter-spacing: .05rem);
+				margin-top: 2px;
+				text-align: center;
 			}
 
 			.image {
+				background-repeat: no-repeat;
+				background-size: cover;
 				background-color: #ccc;
-				height: 300px;
+				height: 250px;
 				margin: 2rem 0;
+
+				@include media-mobile {
+					margin: 2rem 0;
+				}
+
+				@include media-desktop {
+					margin: 2rem auto;
+					max-width: 450px;
+				}
 			}
 
 			.row {
@@ -534,19 +554,22 @@ h1, h2, h3, h4, h5, h6 {
 	  			display: block;
 	  		}
 
-	  		.title {
-	  			text-align: right;
+	  		@include media-desktop {
+	  			max-width: 450px;
+	  			margin-left: auto;
+	  			margin-right: auto;
+	  		}
+
+	  		.label {
+	  			@include sans-font($font-size: .85rem, $font-weight: bold);
+
 	  			margin: 0 1rem 0 0;
 	  			padding: unset;
-	  			font-family: $primary-font-family;
-	  			font-size: 1rem;
-	  			width: 5rem;
-	  			min-width: 5rem;
+	  			width: 4rem;
+	  			min-width: 4rem;
 	  			flex-basis:  5rem;
-	  			line-height: 1.4em;
 	  			position: relative;
-	  			font-weight: bold;
-	  			letter-spacing: .05rem;
+	  			padding-left: 1rem;
 
 	  			&:after {
 	  				content: ':';
@@ -558,8 +581,10 @@ h1, h2, h3, h4, h5, h6 {
 	  		}
 
 	  		.main {
-	  			font-size: 1rem;
-	  			line-height: 1.4em;
+	  			@include sans-font($font-size: .85rem);
+
+	  			padding-right: 1rem;
+
 	  			flex-shrink: 1;
 
 	  			ul {
@@ -594,6 +619,8 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 	.cta {
+		@include serif-font($font-size: 1.5rem);
+
 		display: block;
 		text-align: center;
 		background-color: $font-color;
@@ -601,8 +628,6 @@ h1, h2, h3, h4, h5, h6 {
 		text-decoration: none;
 		padding: 1rem 2rem;
 		width: 100%;
-		font-family: $normal-font-family;
-		font-size: 1.5rem;
 
 		@include media-mobile {
 			width: 80%;
@@ -610,7 +635,7 @@ h1, h2, h3, h4, h5, h6 {
 
 		@include media-desktop {
 			position: absolute;
-			bottom: 100px; right: 20px;
+			bottom: 70px; right: 20px;
 			width: calc(50% + 50px);
 		}
 	}
@@ -619,6 +644,7 @@ h1, h2, h3, h4, h5, h6 {
 .section--expertise {
 	@include max-width($width: 1200px);
 	padding-bottom: 4rem;
+	margin-top: 120px;
 
 	.cards {
 		display: grid;

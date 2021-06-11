@@ -42,7 +42,7 @@
 }
 
 @mixin serif-font($font-size: 1rem, $text-transform: none, $font-weight: normal, $letter-spacing: inherit, $line-height: 1.5em) {
-	font-family: 'Libre Caslon', cursive;
+	font-family: 'Libre Caslon Text', cursive;
 	font-size: $font-size;
 	font-weight: $font-weight;
 

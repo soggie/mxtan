@@ -68,7 +68,7 @@ body, html {
   position: relative;
   background-color: #ffffff;
   color: #695634;
-  font-family: "Libre Caslon", cursive;
+  font-family: "Libre Caslon Text", cursive;
   font-size: 1rem;
   font-weight: normal;
   text-transform: none;
@@ -189,7 +189,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 .section--first-fold .greeting {
-  font-family: "Libre Caslon", cursive;
+  font-family: "Libre Caslon Text", cursive;
   font-size: 1rem;
   font-weight: normal;
   text-transform: none;
@@ -208,9 +208,9 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 915px) {
   .section--first-fold .greeting {
     position: absolute;
-    font-size: 2.5rem;
-    line-height: 1.2em;
-    max-width: 265px;
+    font-size: 2.25rem;
+    line-height: 1.4em;
+    max-width: 285px;
     top: 120px;
   }
 }
@@ -478,7 +478,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 .section--development .card__grid .card .title {
-  font-family: "Libre Caslon", cursive;
+  font-family: "Libre Caslon Text", cursive;
   font-size: 1.5rem;
   font-weight: normal;
   text-transform: none;
@@ -619,7 +619,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 .section--advisory .expertise__list .card .title {
-  font-family: "Libre Caslon", cursive;
+  font-family: "Libre Caslon Text", cursive;
   font-size: 1.5rem;
   font-weight: normal;
   text-transform: none;
@@ -724,7 +724,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 .section--advisory .cta {
-  font-family: "Libre Caslon", cursive;
+  font-family: "Libre Caslon Text", cursive;
   font-size: 1.5rem;
   font-weight: normal;
   text-transform: none;
@@ -934,7 +934,7 @@ h1, h2, h3, h4, h5, h6 {
 .section--contact .socials .title {
   margin: unset;
   padding: 1rem 0 0 0;
-  font-family: "Libre Caslon", cursive;
+  font-family: "Libre Caslon Text", cursive;
   font-size: 1.5rem;
   font-weight: normal;
   text-transform: none;

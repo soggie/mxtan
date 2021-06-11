@@ -411,7 +411,12 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 4rem 0;
 }
 .section--awards .awards__list .item {
-  font-family: "Libre Caslon", cursive;
+  font-family: "Libre Caslon Text", cursive;
+  font-size: 1rem;
+  font-weight: normal;
+  text-transform: none;
+  letter-spacing: inherit;
+  line-height: 1.5em;
   padding: 0.5rem 0;
 }
 @media (max-width: 914px) {
@@ -768,7 +773,11 @@ h1, h2, h3, h4, h5, h6 {
 .section--expertise .cards .item {
   background-color: #EDE5DC;
   text-align: center;
-  font-family: "Libre Caslon", cursive;
+  font-family: "Libre Caslon Text", cursive;
+  font-size: 1rem;
+  font-weight: normal;
+  text-transform: none;
+  letter-spacing: inherit;
   line-height: 1.2em;
   display: flex;
   flex-direction: column;

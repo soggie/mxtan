@@ -225,7 +225,48 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 .section--first-fold .image--avatar-1 {
-  background-color: #fcccfc;
+  display: block;
+  overflow: hidden;
+}
+@keyframes shaker {
+  10%, 90% {
+    transform: translate2d(5px, 0);
+  }
+  20%, 80% {
+    transform: translate2d(-5px, 5px);
+  }
+  30%, 50%, 70% {
+    transform: translate2d(5px, -5px);
+  }
+  40%, 60% {
+    transform: translate2d(0, 5px);
+  }
+}
+.section--first-fold .image--avatar-1 .image {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  max-width: 480px;
+}
+.section--first-fold .image--avatar-1 .webm {
+  background-image: url(../img/sasha.webm);
+}
+.section--first-fold .image--avatar-1 .alt1 {
+  background-image: url(../img/sasha-1.jpg);
+}
+.section--first-fold .image--avatar-1 .alt2 {
+  background-image: url(../img/sasha-1.jpg);
+}
+.section--first-fold .image--avatar-1 .alt3 {
+  background-image: url(../img/sasha-1.jpg);
+}
+.section--first-fold .image--avatar-1 .alt3:hover {
+  animation: shaker 0.3s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 @media (max-width: 914px) {
   .section--first-fold .image--avatar-1 {
@@ -844,6 +885,18 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: 2rem;
   padding-bottom: 4rem;
   background-color: #EDE5DC;
+}
+.section--outside .loading {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Metropolis", sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  text-transform: none;
+  letter-spacing: inherit;
+  line-height: 1.5em;
+  text-align: center;
 }
 
 .section--contact {

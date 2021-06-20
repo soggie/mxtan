@@ -133,7 +133,58 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 	.image--avatar-1 {
-		background-color: #fcccfc;
+		display: block;
+		overflow: hidden;
+
+		@keyframes shaker {
+			10%, 90% {
+				transform: translate2d(5px, 0);
+			}
+
+			20%, 80% {
+				transform: translate2d(-5px, 5px);
+			}
+
+			30%, 50%, 70% {
+				transform: translate2d(5px, -5px);
+			}
+
+			40%, 60% {
+				transform: translate2d(0, 5px);
+			}
+		}
+
+		.image {
+			position: absolute;
+			left: 0; right: 0;
+			top: 0; bottom: 0;
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: cover;
+
+			max-width: 480px;
+		}
+
+		.webm {
+			background-image: url(../img/sasha.webm);
+		}
+
+		.alt1 {
+			background-image: url(../img/sasha-1.jpg);
+		}
+
+		.alt2 {
+			background-image: url(../img/sasha-1.jpg);
+		}
+
+		.alt3 {
+			background-image: url(../img/sasha-1.jpg);
+			
+			&:hover {
+				animation: shaker 0.3s cubic-bezier(.36,.07,.19,.97) both;	
+			}
+			
+		}
 
 		@include media-mobile {
 			align-self: flex-end;
@@ -833,6 +884,12 @@ h1, h2, h3, h4, h5, h6 {
 	padding-top: 2rem;
 	padding-bottom: 4rem;
 	background-color: $background-color;
+
+	.loading {
+		@include max-width;
+		@include sans-font;
+		text-align: center;
+	}
 }
 
 .section--contact {

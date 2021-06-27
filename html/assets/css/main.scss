@@ -37,6 +37,11 @@ h1, h2, h3, h4, h5, h6 {
 		&.light {
 			margin-top: 2px;
 		}
+
+		@include media-mobile {
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
 	}
 }
 
@@ -59,7 +64,7 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 	@include media-hd {
-		height: 580px;
+		height: 650px;
 	}
 
 	.fold__main {
@@ -74,7 +79,7 @@ h1, h2, h3, h4, h5, h6 {
 		}
 
 		@include media-hd {
-			max-width: 900px;
+			// max-width: 900px;
 			height: 300px;
 		}
 	}
@@ -93,14 +98,7 @@ h1, h2, h3, h4, h5, h6 {
 			font-size: 1.5rem;
 			font-weight: lighter;
 			top: calc(70px - 1.5rem);
-		}
-
-		@include media-md {
 			left: 80px;
-		}
-
-		@include media-hd {
-			left: 0;
 		}
 	}
 
@@ -111,99 +109,56 @@ h1, h2, h3, h4, h5, h6 {
 			font-size: 1.75rem;
 			line-height: 1.3em;
 			align-self: flex-end;
-			max-width: calc(80% - 1rem);
+			max-width: calc(80%);
 			padding: 1rem 1rem 1rem 0;
 		}
 
 		@include media-desktop {
 			position: absolute;
-			font-size: 2.25rem;
+			font-size: 2.35rem;
 			line-height: 1.4em;
-			max-width: 285px;
+			max-width: 300px;
 			top: 120px;
 		}
 
-		@include media-md {
-			left: 720px;
-		}
-
-		@include media-hd {
-			left: 600px;
-		}
+		@include media-md { left: 720px; }
+		@include media-hd { left: 770px; }
 	}
 
 	.image--avatar-1 {
 		display: block;
 		overflow: hidden;
 
-		@keyframes shaker {
-			10%, 90% {
-				transform: translate2d(5px, 0);
-			}
-
-			20%, 80% {
-				transform: translate2d(-5px, 5px);
-			}
-
-			30%, 50%, 70% {
-				transform: translate2d(5px, -5px);
-			}
-
-			40%, 60% {
-				transform: translate2d(0, 5px);
-			}
-		}
-
 		.image {
-			position: absolute;
-			left: 0; right: 0;
-			top: 0; bottom: 0;
 			background-repeat: no-repeat;
 			background-position: center center;
 			background-size: cover;
-
-			max-width: 480px;
-		}
-
-		.webm {
-			background-image: url(../img/sasha.webm);
-		}
-
-		.alt1 {
-			background-image: url(../img/sasha-1.jpg);
-		}
-
-		.alt2 {
-			background-image: url(../img/sasha-1.jpg);
-		}
-
-		.alt3 {
-			background-image: url(../img/sasha-1.jpg);
-			
-			&:hover {
-				animation: shaker 0.3s cubic-bezier(.36,.07,.19,.97) both;	
-			}
-			
+			height: 100%;
 		}
 
 		@include media-mobile {
 			align-self: flex-end;
+
+			.image {
+				width: 280px;
+				margin-right: 10px;
+			}
 		}
 
 		@include media-desktop {
 			position: absolute;
 			width: 480px;
-			height: 380px;
+			height: 550px;
 			top: 120px;
+			background-color: red;
 		}
 
-		@include media-md {
-			left: 180px;
-		}
+		@include media-md { left: 180px; }
+		@include media-hd { left: 220px; } // 140px + 80px
 
-		@include media-hd {
-			left: 70px;
-		}
+		.alt1 { background-image: url(../img/sasha-1.jpg); }
+		.alt2 { background-image: url(../img/sasha-1.jpg); }
+		.alt3 { background-image: url(../img/sasha-1.jpg); }
 	}
 
 	.image--avatar-2 {
@@ -216,9 +171,9 @@ h1, h2, h3, h4, h5, h6 {
 
 		@include media-desktop {
 			position: absolute;
-			width: 380px;
-			height: 200px;
-			top: 420px;
+			width: 350px;
+			height: 280px;
+			top: 450px;
 		}
 
 		@include media-md {
@@ -226,7 +181,7 @@ h1, h2, h3, h4, h5, h6 {
 		}
 
 		@include media-hd {
-			left: 330px;
+			left: 600px;
 		}
 	}
 
@@ -248,6 +203,7 @@ h1, h2, h3, h4, h5, h6 {
 	@include media-desktop {
 		margin-right: 100px;
 		margin-top: 65px;
+		display: none;
 	}
 
 	.menu--overlay {
@@ -353,6 +309,10 @@ h1, h2, h3, h4, h5, h6 {
 .section--awards {
 	margin-top: 65px;
 
+	@include media-desktop {
+		margin-top: 150px;
+	}
+
 	.awards__list {
 		padding: 0;
 		margin: 0 0 4rem 0;
@@ -362,8 +322,9 @@ h1, h2, h3, h4, h5, h6 {
 			padding: .5rem 0;
 
 			@include media-mobile {
-				font-size: 1.35rem;
-				line-height: 1.1em;
+				font-size: 1rem;
+				line-height: 1.5em;
+				margin-bottom: 1rem;
 				padding-right: 10px;
 				margin-left: -10px;
 			}
@@ -399,6 +360,10 @@ h1, h2, h3, h4, h5, h6 {
 
 	.section__subtitle {
 		margin-bottom: 90px;
+
+		@include media-mobile {
+			margin-bottom: 60px;
+		}
 	}
 }
 
@@ -438,7 +403,7 @@ h1, h2, h3, h4, h5, h6 {
 	  		margin-bottom: 1.5rem;
 
 	  		@include media-mobile {
-	  			height: 300px;
+	  			height: 200px;
 	  		}
 
 	  		@include media-desktop {
@@ -877,6 +842,10 @@ h1, h2, h3, h4, h5, h6 {
 		.title {
 			margin: unset; padding: 1rem 0 0 0;
 			@include serif-font($font-size: 1.5rem);
+
+			@include media-mobile {
+				font-size: 1rem;
+			}
 		}
 	}
 

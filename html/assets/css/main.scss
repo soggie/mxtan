@@ -697,16 +697,6 @@ h1, h2, h3, h4, h5, h6 {
 	padding: 0 1rem 4rem 1rem;
 	margin-top: 120px;
 
-	@include media-mobile {
-		// margin-left: 10px;
-		// margin-right: 10px;
-	}
-
-	@include media-md {
-		// margin-left: 10px;
-		// margin-right: 10px;
-	}
-
 	.grid-item {
 		background-color: $background-color;
 		text-align: center;
@@ -733,104 +723,6 @@ h1, h2, h3, h4, h5, h6 {
 		
 		max-width: 400px;
 	}
-
-	// .cards {
-	// 	display: grid;
-	//   grid-gap: 30px;
-	//   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-	//   margin-bottom: 2rem;
-
-	//   .item {
-	//   	background-color: $background-color;
-	  	
-	//   	text-align: center;
-
-	//   	@include serif-font($line-height: 1.2em);
-	  	
-	//   	display: flex;
-	//   	flex-direction: column;
-	//   	justify-content: center;
-
-	//   	box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
-
-	//   	@include media-mobile {
-	//   		font-size: 1rem;
-	//   		height: 100px;
-	//   		padding: 1rem;
-	//   		margin: 0;
-
-	//   		&:nth-child(1) {
-
-	//   		}
-	//   	}
-
-	//   	@include media-desktop {
-	//   		font-size: 1.5rem;
-	//   		height: 200px;
-	//   		padding: 2rem;
-
-	//   		&:nth-child(1) {
-	// 	  		margin-right: 20px;
-	// 	  		z-index: 100;
-	// 	  	}
-
-	// 	  	&:nth-child(2) {
-	// 	  		height: calc(200px - 100px);
-	// 	  		margin-top: 40px;
-	// 	  		margin-left: -100px;
-	// 	  		margin-right: 50px;
-	// 	  		z-index: 104;
-	// 	  	}
-
-	// 	  	&:nth-child(3) {
-	// 	  		z-index: 101;
-	// 	  		height: calc(200px - 50px);
-	// 	  		margin-left: -50px;
-	// 	  		margin-right: 20px;
-	// 	  	}
-
-	// 	  	&:nth-child(4) {
-	// 	  		height: calc(200px - 100px);
-	// 	  		margin-top: -10px;
-	// 	  		margin-left: 50px;	
-	// 	  		z-index: 102;
-	// 	  	}
-
-	// 	  	&:nth-child(5) {
-	// 	  		margin-top: -100px;
-	// 	  		z-index: 103;
-	// 	  	}
-
-	// 	  	&:nth-child(6) {
-	// 	  		z-index: 102;
-	// 	  		margin-left: -50px;
-	// 	  		height: calc(200px - 10px);
-	// 	  	}
-	//   	}
-	//   }
-	// }
-
-	// .cta {
-	// 	display: block;
-	// 	max-width: 800px;
-	// 	text-align: center;
-	// 	background-color: $font-color;
-	// 	color: #fff;
-	// 	text-decoration: none;
-	// 	padding: 1rem 2rem;
-		
-	// 	font-family: $normal-font-family;
-	// 	font-size: 1.5rem;
-
-	// 	@include media-mobile {
-	// 		width: 80%;
-	// 	}
-
-	// 	@include media-desktop {
-	// 		width: calc(1120px - 450px);
-	// 		margin-top: -90px;
-	// 	}
-	// }
 }
 
 .section--public-speaking {
@@ -881,14 +773,70 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section--outside {
-	padding-top: 2rem;
-	padding-bottom: 4rem;
+	padding-bottom: 80px;
+	padding-top: 80px;
 	background-color: $background-color;
 
 	.loading {
 		@include max-width;
 		@include sans-font;
 		text-align: center;
+	}
+
+	.instagram-grid {
+		display: grid;
+		grid-template-columns: repeat(8, 1fr);
+		grid-gap: 10px;
+
+		.image {
+			background-color: #ccc;
+			background-size: cover;
+			background-position: center center;
+			padding: 1rem;
+
+			&::before {
+				content: '';
+				padding-bottom: 100%;
+				display: block;
+			}
+		}
+	}
+
+	@mixin grid-double {
+		grid-column: span 2;
+		grid-row: span 2;
+	}
+
+	@media (min-width: 1000px) { 
+		.instagram-grid > figure:nth-child(4) { @include grid-double; }
+		.instagram-grid > figure:nth-child(12) { @include grid-double; }
+	}
+
+	@media (min-width: 800px) and (max-width: 999px) {
+		.instagram-grid {
+			grid-template-columns: repeat(6, 1fr)
+		}
+
+		.instagram-grid > figure:nth-child(3) { @include grid-double; }
+		.instagram-grid > figure:nth-child(14) { @include grid-double; }
+	}
+
+	@media (min-width: 450px) and (max-width: 799px) {
+		.instagram-grid {
+			grid-template-columns: repeat(4, 1fr)
+		}
+
+		.instagram-grid > figure:nth-child(3) { @include grid-double; }
+		.instagram-grid > figure:nth-child(10) { @include grid-double; }
+	}
+
+	@media (max-width: 449px) {
+		.instagram-grid {
+			grid-template-columns: repeat(3, 1fr)
+		}
+
+		.instagram-grid > figure:nth-child(1) { @include grid-double; }
+		.instagram-grid > figure:nth-child(11) { @include grid-double; }
 	}
 }
 

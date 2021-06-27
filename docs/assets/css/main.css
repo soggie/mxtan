@@ -882,8 +882,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section--outside {
-  padding-top: 2rem;
-  padding-bottom: 4rem;
+  padding-bottom: 80px;
+  padding-top: 80px;
   background-color: #EDE5DC;
 }
 .section--outside .loading {
@@ -897,6 +897,71 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: inherit;
   line-height: 1.5em;
   text-align: center;
+}
+.section--outside .instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-gap: 10px;
+}
+.section--outside .instagram-grid .image {
+  background-color: #ccc;
+  background-size: cover;
+  background-position: center center;
+  padding: 1rem;
+}
+.section--outside .instagram-grid .image::before {
+  content: "";
+  padding-bottom: 100%;
+  display: block;
+}
+@media (min-width: 1000px) {
+  .section--outside .instagram-grid > figure:nth-child(4) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  .section--outside .instagram-grid > figure:nth-child(12) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+@media (min-width: 800px) and (max-width: 999px) {
+  .section--outside .instagram-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .section--outside .instagram-grid > figure:nth-child(3) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  .section--outside .instagram-grid > figure:nth-child(14) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+@media (min-width: 450px) and (max-width: 799px) {
+  .section--outside .instagram-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .section--outside .instagram-grid > figure:nth-child(3) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  .section--outside .instagram-grid > figure:nth-child(10) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+@media (max-width: 449px) {
+  .section--outside .instagram-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .section--outside .instagram-grid > figure:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  .section--outside .instagram-grid > figure:nth-child(11) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
 }
 
 .section--contact {

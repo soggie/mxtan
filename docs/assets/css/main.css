@@ -110,6 +110,12 @@ h1, h2, h3, h4, h5, h6 {
 .section .section__subtitle.light {
   margin-top: 2px;
 }
+@media (max-width: 914px) {
+  .section .section__subtitle {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
 
 /**
  * First fold styling goes here
@@ -134,7 +140,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (min-width: 1281px) {
   .section--first-fold {
-    height: 580px;
+    height: 650px;
   }
 }
 @media (max-width: 914px) {
@@ -151,7 +157,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (min-width: 1281px) {
   .section--first-fold .fold__main {
-    max-width: 900px;
     height: 300px;
   }
 }
@@ -176,16 +181,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.5rem;
     font-weight: lighter;
     top: calc(70px - 1.5rem);
-  }
-}
-@media (min-width: 915px) and (max-width: 1280px) {
-  .section--first-fold .title {
     left: 80px;
-  }
-}
-@media (min-width: 1281px) {
-  .section--first-fold .title {
-    left: 0;
   }
 }
 .section--first-fold .greeting {
@@ -201,16 +197,16 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.75rem;
     line-height: 1.3em;
     align-self: flex-end;
-    max-width: calc(80% - 1rem);
+    max-width: calc(80%);
     padding: 1rem 1rem 1rem 0;
   }
 }
 @media (min-width: 915px) {
   .section--first-fold .greeting {
     position: absolute;
-    font-size: 2.25rem;
+    font-size: 2.35rem;
     line-height: 1.4em;
-    max-width: 285px;
+    max-width: 300px;
     top: 120px;
   }
 }
@@ -221,64 +217,35 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (min-width: 1281px) {
   .section--first-fold .greeting {
-    left: 600px;
+    left: 770px;
   }
 }
 .section--first-fold .image--avatar-1 {
   display: block;
   overflow: hidden;
 }
-@keyframes shaker {
-  10%, 90% {
-    transform: translate2d(5px, 0);
-  }
-  20%, 80% {
-    transform: translate2d(-5px, 5px);
-  }
-  30%, 50%, 70% {
-    transform: translate2d(5px, -5px);
-  }
-  40%, 60% {
-    transform: translate2d(0, 5px);
-  }
-}
 .section--first-fold .image--avatar-1 .image {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  max-width: 480px;
-}
-.section--first-fold .image--avatar-1 .webm {
-  background-image: url(../img/sasha.webm);
-}
-.section--first-fold .image--avatar-1 .alt1 {
-  background-image: url(../img/sasha-1.jpg);
-}
-.section--first-fold .image--avatar-1 .alt2 {
-  background-image: url(../img/sasha-1.jpg);
-}
-.section--first-fold .image--avatar-1 .alt3 {
-  background-image: url(../img/sasha-1.jpg);
-}
-.section--first-fold .image--avatar-1 .alt3:hover {
-  animation: shaker 0.3s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  height: 100%;
 }
 @media (max-width: 914px) {
   .section--first-fold .image--avatar-1 {
     align-self: flex-end;
+  }
+  .section--first-fold .image--avatar-1 .image {
+    width: 280px;
+    margin-right: 10px;
   }
 }
 @media (min-width: 915px) {
   .section--first-fold .image--avatar-1 {
     position: absolute;
     width: 480px;
-    height: 380px;
+    height: 550px;
     top: 120px;
+    background-color: red;
   }
 }
 @media (min-width: 915px) and (max-width: 1280px) {
@@ -288,8 +255,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (min-width: 1281px) {
   .section--first-fold .image--avatar-1 {
-    left: 70px;
+    left: 220px;
   }
+}
+.section--first-fold .image--avatar-1 .alt1 {
+  background-image: url(../img/sasha-1.jpg);
+}
+.section--first-fold .image--avatar-1 .alt2 {
+  background-image: url(../img/sasha-1.jpg);
+}
+.section--first-fold .image--avatar-1 .alt3 {
+  background-image: url(../img/sasha-1.jpg);
 }
 .section--first-fold .image--avatar-2 {
   background-color: #ccc;
@@ -303,9 +279,9 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 915px) {
   .section--first-fold .image--avatar-2 {
     position: absolute;
-    width: 380px;
-    height: 200px;
-    top: 420px;
+    width: 350px;
+    height: 280px;
+    top: 450px;
   }
 }
 @media (min-width: 915px) and (max-width: 1280px) {
@@ -315,7 +291,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (min-width: 1281px) {
   .section--first-fold .image--avatar-2 {
-    left: 330px;
+    left: 600px;
   }
 }
 @media (max-width: 914px) {
@@ -340,6 +316,7 @@ h1, h2, h3, h4, h5, h6 {
   .section--nav {
     margin-right: 100px;
     margin-top: 65px;
+    display: none;
   }
 }
 .section--nav .menu--overlay {
@@ -447,6 +424,11 @@ h1, h2, h3, h4, h5, h6 {
 .section--awards {
   margin-top: 65px;
 }
+@media (min-width: 915px) {
+  .section--awards {
+    margin-top: 150px;
+  }
+}
 .section--awards .awards__list {
   padding: 0;
   margin: 0 0 4rem 0;
@@ -462,8 +444,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (max-width: 914px) {
   .section--awards .awards__list .item {
-    font-size: 1.35rem;
-    line-height: 1.1em;
+    font-size: 1rem;
+    line-height: 1.5em;
+    margin-bottom: 1rem;
     padding-right: 10px;
     margin-left: -10px;
   }
@@ -497,6 +480,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 .section--awards .section__subtitle {
   margin-bottom: 90px;
+}
+@media (max-width: 914px) {
+  .section--awards .section__subtitle {
+    margin-bottom: 60px;
+  }
 }
 
 .section--development {
@@ -542,7 +530,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (max-width: 914px) {
   .section--development .card__grid .card .image {
-    height: 300px;
+    height: 200px;
   }
 }
 @media (min-width: 915px) {
@@ -1004,6 +992,11 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: none;
   letter-spacing: inherit;
   line-height: 1.5em;
+}
+@media (max-width: 914px) {
+  .section--contact .socials .title {
+    font-size: 1rem;
+  }
 }
 .section--contact .copyright {
   font-family: "Metropolis", sans-serif;
